@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack on Titan | Seasons</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <header class="fade-in">
+        <div class="logo pulse">
+            <img src="images/aot-logo.png" alt="Attack on Titan Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="hover-grow">Home</a></li>
+                <li><a href="characters.html" class="hover-grow">Characters</a></li>
+                <li><a href="seasons.html" class="active glow">Seasons</a></li>
+                <li><a href="gallery.html" class="hover-grow">Gallery</a></li>
+                <li><a href="about.html" class="hover-grow">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seasons-section">
+            <h2 class="section-title flip-in">Seasons & Episodes</h2>
+            
+            <div class="season-accordion">
+                <!-- Season 1 -->
+                <div class="season-card slide-in-left">
+                    <div class="season-header">
+                        <h3>Season 1: The Fall of Shiganshina</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="season-content">
+                        <div class="episode-list">
+                            <div class="episode">
+                                <span class="episode-number">1</span>
+                                <div class="episode-info">
+                                    <h4>To You, 2,000 Years in the Future</h4>
+                                    <p>Eren has a mysterious dream before waking up to his daily life in Shiganshina District.</p>
+                                </div>
+                            </div>
+                            <div class="episode">
+                                <span class="episode-number">2</span>
+                                <div class="episode-info">
+                                    <h4>That Day</h4>
+                                    <p>The Colossal Titan appears and breaches the outer wall of Shiganshina District.</p>
+                                </div>
+                            </div>
+                            <!-- More episodes would be listed -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Season 2 -->
+                <div class="season-card slide-in-right">
+                    <div class="season-header">
+                        <h3>Season 2: The Beast Titan</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="season-content">
+                        <div class="episode-list">
+                            <div class="episode">
+                                <span class="episode-number">1</span>
+                                <div class="episode-info">
+                                    <h4>Beast Titan</h4>
+                                    <p>The Survey Corps encounters the mysterious Beast Titan during an expedition.</p>
+                                </div>
+                            </div>
+                            <div class="episode">
+                                <span class="episode-number">2</span>
+                                <div class="episode-info">
+                                    <h4>I'm Home</h4>
+                                    <p>Ymir's past is revealed as the Titans attack Castle Utgard.</p>
+                                </div>
+                            </div>
+                            <!-- More episodes would be listed -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More seasons would be added similarly -->
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2 class="section-title flip-in">Story Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">845</div>
+                    <div class="timeline-content slide-in-left">
+                        <h3>The Fall of Wall Maria</h3>
+                        <p>The Colossal and Armored Titans breach Wall Maria, leading to massive casualties and the beginning of Eren's journey.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">850</div>
+                    <div class="timeline-content slide-in-right">
+                        <h3>Battle of Trost</h3>
+                        <p>Eren's Titan powers are revealed during the defense of Trost District.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">851</div>
+                    <div class="timeline-content slide-in-left">
+                        <h3>Female Titan Arc</h3>
+                        <p>The Survey Corps faces the Female Titan during the 57th Expedition.</p>
+                    </div>
+                </div>
+                <!-- More timeline items would be added -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="fade-in">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-icon bounce"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon bounce"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon bounce"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon bounce"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Attack on Titan Fan Site. By- Zynn's husband.</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Season accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const seasonHeaders = document.querySelectorAll('.season-header');
+            
+            seasonHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const seasonCard = header.parentElement;
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.toggle-icon');
+                    
+                    if (seasonCard.classList.contains('active')) {
+                        seasonCard.classList.remove('active');
+                        content.style.maxHeight = null;
+                        icon.textContent = '+';
+                    } else {
+                        seasonCard.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.textContent = '-';
+                    }
+                });
+            });
+            
+            // Initialize first season as open
+            const firstSeason = document.querySelector('.season-card');
+            firstSeason.classList.add('active');
+            firstSeason.querySelector('.season-content').style.maxHeight = 
+                firstSeason.querySelector('.season-content').scrollHeight + 'px';
+            firstSeason.querySelector('.toggle-icon').textContent = '-';
+        });
+    </script>
+</body>
+</html>
